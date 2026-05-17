@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+        
+        .navbar-brand:hover {
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: var(--gradien);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gelap);
+        }
+        
+        .footer {
+            background: var(--gelap);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid var(--utama);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--gelap);
+            font-size: 1.2rem;
+        }
+        
+        .team-nim {
+            color: var(--utama);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .team-role {
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .about-section {
+            padding: 40px 0;
+        }
+        
+        .about-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .vision-mission {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Apollo Shoppie</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+          
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Tentang Apollo Shoppie</h1>
+            <p class="hero-subtitle">Kenali tim di balik kesuksesan platform e-commerce terpercaya</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+      
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Tentang Kami</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="lead">Apollo Shoppie adalah platform e-commerce terdepan yang didirikan dengan visi untuk memberikan pengalaman berbelanja online terbaik bagi masyarakat Indonesia.</p>
+                        <p>Kami menyediakan berbagai produk berkualitas dari kategori elektronik, fashion, rumah tangga, dan furniture dengan harga yang kompetitif dan layanan pelanggan yang prima.</p>
+                        <p>Dengan teknologi terkini dan sistem yang aman, kami berkomitmen untuk terus berinovasi dalam memenuhi kebutuhan belanja online Anda.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <img src="ASSET/logo.jpeg" alt="Apollo Shoppie" class="img-fluid rounded" style="border-radius: 15px !important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Tim Kami</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="ASSET/admin.jpeg" class="team-photo" alt="">
+                        <h3 class="team-name">widi audia</h3>
+                        <p class="team-nim">NIM:110124113</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="ASSET/admin2.jpeg" class="team-photo" alt="">
+                        <h3 class="team-name">putri ayu lestari</h3>
+                        <p class="team-nim">NIM:110124117</p>
+                    </div>
+  
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Apollo Shoppie</h4>
+                    <p>Toko online terpercaya dengan berbagai produk berkualitas dan harga terbaik.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Link Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
+                        <li><a href="tentang.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li><a href="pengembalian.html" class="text-white text-decoration-none">Return</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Kontak Kami</h4>
+                    <p><i class="fas fa-phone"></i> +83149473635</p>
+                    <p><i class="fas fa-envelope"></i> info@apolloshoppie.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Apollo Shoppie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

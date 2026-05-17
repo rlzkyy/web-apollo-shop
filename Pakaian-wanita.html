@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk Fashion - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: var(--gradien);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gelap);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            cursor: pointer;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img-top {
+            border-radius: 15px 15px 0 0;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            color: var(--gelap);
+        }
+        
+        .card-text {
+            color: #666;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--utama);
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--gradien);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .badge-discount {
+            background: var(--aksen);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        .badge-category {
+            background: var(--info);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .footer {
+            background: var(--gelap);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .filter-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .filter-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gelap);
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-item {
+            padding: 8px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category-item:hover {
+            color: var(--utama);
+            transform: translateX(5px);
+        }
+        
+        .category-item.active {
+            color: var(--utama);
+            font-weight: 700;
+        }
+        
+        .product-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .product-link:hover {
+            color: inherit;
+        }
+        
+        .category-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 8px 0;
+        }
+        
+        .category-link:hover {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kategori.html">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promo.html">Promo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Produk Fashion</h1>
+            <p class="hero-subtitle">Temukan berbagai produk fashion berkualitas dengan harga terbaik</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filter-section">
+                    <h4 class="filter-title">Kategori</h4>
+                    <ul class="category-list">
+                        <li><a href="produk.html" class="category-link">Semua Produk</a></li>
+
+                        <li class="category-item active"><a href="Pakaian-wanita.html" class="category-link">wanita</a></li>
+                        <li><a href="Pakaian-pria.html" class="category-link">pria</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="mb-0">Produk Fashion</h3>
+                    <div class="input-group" style="width: 300px;">
+                        <input type="text" class="form-control" id="searchProducts" placeholder="Cari produk fashion...">
+                        <button class="btn btn-outline-primary" type="button" id="searchButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row" id="productsContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Apollo Shoppie</h4>
+                    <p>Toko online terpercaya dengan berbagai produk berkualitas dan harga terbaik.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Link Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
+                        <li><a href="promo.html" class="text-white text-decoration-none">Promo</a></li>
+                        <li><a href="tentang.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li><a href="pengembalian.html" class="text-white text-decoration-none">Return</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Kontak Kami</h4>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@apolloshoppie.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Apollo Shoppie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const fashionProducts = [{
+           
+            id: 2,
+            name: "Baju Flanel ",
+            price: 899000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "fashion",
+            discount: 15
+        }, {
+            id: 3,
+            name: "Baju boxy",
+            price: 499000,
+            image: "ASSET/baju2.jpg",
+            description: "Baju Boxy Uniqlo.",
+            category: "fashion",
+            discount: 0
+        }];
+
+        function getDetailPage(productId) {
+            const detailPages = {
+                6: "detailsepatu.html",
+                7: "detailrangsel.html"
+            };
+
+            return detailPages[productId] || "detail-produk.html";
+        }
+
+        function displayProducts(productsToShow, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            productsToShow.forEach(product => {
+                        const discountedPrice = product.discount > 0 ?
+                            product.price * (1 - product.discount / 100) :
+                            product.price;
+
+                        const detailPage = getDetailPage(product.id);
+
+                        const productCard = `
+                    <div class="col-md-4">
+                        <a href="${detailPage}?id=${product.id}" class="product-link">
+                            <div class="card product-card">
+                                <div class="position-relative">
+                                    <img src="${product.image}" class="card-img-top" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200/6a11cb/ffffff?text=Gambar+Tidak+Tersedia'">
+                                    ${product.discount > 0 ? `<span class="badge-discount">DISKON ${product.discount}%</span>` : ''}
+                                    <span class="badge-category">${product.category}</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">${product.description}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            ${product.discount > 0 
+                                                ? `<span class="old-price me-2">Rp ${product.price.toLocaleString('id-ID')}</span>
+                                                   <span class="price">Rp ${Math.round(discountedPrice).toLocaleString('id-ID')}</span>`
+                                                : `<span class="price">Rp ${product.price.toLocaleString('id-ID')}</span>`
+                                            }
+                                        </div>
+                                        <button class="btn btn-primary buy-now" data-product-id="${product.id}">Beli Sekarang</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `;
+                container.innerHTML += productCard;
+            });
+
+            document.querySelectorAll('.buy-now').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const productId = this.getAttribute('data-product-id');
+                    const detailPage = getDetailPage(parseInt(productId));
+                    window.location.href = `${detailPage}?id=${productId}`;
+                });
+            });
+        }
+
+        function searchProducts(query) {
+            return fashionProducts.filter(product => 
+                product.name.toLowerCase().includes(query.toLowerCase()) ||
+                product.description.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts(fashionProducts, 'productsContainer');
+
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const query = document.getElementById('searchProducts').value;
+                const results = searchProducts(query);
+                displayProducts(results, 'productsContainer');
+            });
+
+            document.getElementById('searchProducts').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('searchButton').click();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

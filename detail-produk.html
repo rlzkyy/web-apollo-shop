@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pesanan - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .detail-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gelap);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--terang);
+        }
+        
+        .product-summary {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--terang);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .product-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .product-info {
+            flex-grow: 1;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .product-price {
+            color: var(--utama);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px 0;
+        }
+        
+        .summary-total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--utama);
+            border-top: 2px solid var(--terang);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .back-link {
+            color: var(--utama);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-primary {
+            background: var(--gradien);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .discount-badge {
+            background: var(--aksen);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--utama);
+            background: white;
+            color: var(--utama);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--utama);
+            color: white;
+        }
+        
+        .quantity-display {
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            min-width: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kategori.html">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promo.html">Promo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left me-2"></i> Kembali ke Beranda
+        </a>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="detail-container">
+                    <h2 class="section-title">Detail Pesanan</h2>
+
+                    <div id="productDetail">
+
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="section-title">Ringkasan Pembayaran</div>
+
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Biaya Pengiriman</span>
+                            <span id="shippingCost">Rp 0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Diskon</span>
+                            <span id="discountAmount">Rp 0</span>
+                        </div>
+                        <div class="summary-item summary-total">
+                            <span>Total Pembayaran</span>
+                            <span id="totalAmount">Rp 0</span>
+                        </div>
+
+                        <button id="continueBtn" class="btn btn-primary w-100 mt-4">
+                            <i class="fas fa-arrow-right me-2"></i> LANJUTKAN KE PEMBAYARAN
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const products =  [ {
+            id: 1,
+            name: "Baju Flanel ",
+            price: 899000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 15
+        },  {
+            id: 2,
+            name: "Baju Flanel ",
+            price: 899000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 15
+        },  {
+            id: 3,
+            name: "Baju Flanel ",
+            price: 899000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 15
+        }, {
+            id: 4,
+            name: "Baju Flanel ",
+            price: 899000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "Pakaian-wanita",
+            discount: 15
+        }, {
+            id: 5,
+            name: "Baju Flanel ",
+            price: 899000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "Pakaian-wanita",
+            discount: 15
+        },{
+            id: 6,
+            name: "Baju boxy",
+            price: 499000,
+            image: "ASSET/baju2.jpg",
+            description: "Baju Boxy Uniqlo.",
+            category: "Pakaian-wanita",
+            discount: 0
+        }];
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function displayProductDetail() {
+            const productId = parseInt(getUrlParameter('id'));
+            let quantity = parseInt(getUrlParameter('quantity')) || 1;
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                const productDetail = document.getElementById('productDetail');
+                productDetail.innerHTML = `
+                    <div class="product-summary">
+                        <img src="${product.image}" class="product-image" alt="${product.name}" onerror="this.src='https://via.placeholder.com/100x100/6a11cb/ffffff?text=Gambar+Tidak+Tersedia'">
+                        <div class="product-info">
+                            <div class="d-flex align-items-center">
+                                <div class="product-name">${product.name}</div>
+                                ${product.discount > 0 ? `<span class="discount-badge">${product.discount}% OFF</span>` : ''}
+                            </div>
+                            <div class="product-description">${product.description}</div>
+                            <div class="product-price">Rp ${product.price.toLocaleString('id-ID')}</div>
+                            
+                            <div class="quantity-control">
+                                <div class="quantity-btn" id="decreaseQty">-</div>
+                                <div class="quantity-display" id="quantityDisplay">${quantity}</div>
+                                <div class="quantity-btn" id="increaseQty">+</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('decreaseQty').addEventListener('click', function() {
+                    if (quantity > 1) {
+                        quantity--;
+                        updateOrderSummary(product, quantity);
+                    }
+                });
+                
+                document.getElementById('increaseQty').addEventListener('click', function() {
+                    quantity++;
+                    updateOrderSummary(product, quantity);
+                });
+
+                updateOrderSummary(product, quantity);
+
+                document.getElementById('continueBtn').addEventListener('click', function() {
+                    window.location.href = `formulir.html?id=${productId}&quantity=${quantity}`;
+                });
+                
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+
+        function updateOrderSummary(product, quantity) {
+
+            document.getElementById('quantityDisplay').textContent = quantity;
+
+            const subtotal = product.price * quantity;
+            const discountAmount = product.discount > 0 ? subtotal * (product.discount / 100) : 0;
+            const shippingCost = subtotal > 500000 ? 0 : 25000;
+            const totalAmount = subtotal - discountAmount + shippingCost;
+
+            document.getElementById('subtotal').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+            document.getElementById('shippingCost').textContent = 'Rp ' + shippingCost.toLocaleString('id-ID');
+            document.getElementById('discountAmount').textContent = 'Rp ' + Math.round(discountAmount).toLocaleString('id-ID');
+            document.getElementById('totalAmount').textContent = 'Rp ' + Math.round(totalAmount).toLocaleString('id-ID');
+        }
+at
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProductDetail();
+        });
+    </script>
+</body>
+
+</html>

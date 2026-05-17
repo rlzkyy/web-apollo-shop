@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pembayaran - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gelap);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--terang);
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--utama);
+            box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.25);
+        }
+        
+        .btn-primary {
+            background: var(--gradien);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .back-link {
+            color: var(--utama);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .payment-method {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-option {
+            flex: 1;
+            min-width: 120px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-option:hover {
+            border-color: var(--utama);
+        }
+        
+        .payment-option.selected {
+            border-color: var(--utama);
+            background-color: rgba(106, 17, 203, 0.05);
+        }
+        
+        .payment-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .order-summary-small {
+            background: var(--terang);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-item-small {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .summary-total-small {
+            font-weight: 700;
+            color: var(--utama);
+            border-top: 1px solid #ddd;
+            padding-top: 8px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+       
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-container">
+                    <h2 class="section-title">Informasi Pengiriman</h2>
+
+                    <form id="checkoutForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">Nama Depan</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Nama Belakang</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Nomor Telepon</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Alamat Lengkap</label>
+                            <textarea class="form-control" id="address" rows="3" required></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="city" class="form-label">Kota</label>
+                                <input type="text" class="form-control" id="city" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="postalCode" class="form-label">Kode Pos</label>
+                                <input type="text" class="form-control" id="postalCode" required>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title mt-4">Metode Pembayaran</h2>
+
+                        <div class="payment-method">
+                            <div class="payment-option" data-method="credit">
+                                <div class="payment-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div>Kartu Kredit</div>
+                            </div>
+                            <div class="payment-option" data-method="debit">
+                                <div class="payment-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div>Kartu Debit</div>
+                            </div>
+                            <div class="payment-option" data-method="bank">
+                                <div class="payment-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div>Transfer Bank</div>
+                            </div>
+                            <div class="payment-option" data-method="cod">
+                                <div class="payment-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div>COD</div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="paymentMethod" name="paymentMethod" required>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3">
+                            <i class="fas fa-lock me-2"></i> KONFIRMASI PEMBAYARAN
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-container">
+                    <h2 class="section-title">Ringkasan Pesanan</h2>
+
+                    <div id="orderSummary">
+                    </div>
+
+                    <div class="order-summary-small">
+                        <div class="summary-item-small">
+                            <span>Subtotal</span>
+                            <span id="subtotalSmall">Rp 0</span>
+                        </div>
+                        <div class="summary-item-small">
+                            <span>Biaya Pengiriman</span>
+                            <span id="shippingCostSmall">Rp 0</span>
+                        </div>
+                        <div class="summary-item-small">
+                            <span>Diskon</span>
+                            <span id="discountAmountSmall">Rp 0</span>
+                        </div>
+                        <div class="summary-item-small summary-total-small">
+                            <span>Total</span>
+                            <span id="totalAmountSmall">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const products =  [ {
+            id: 1,
+            name: "Baju polo ",
+            price: 400000,
+            image: "ASSET/baju1.avif",
+            description: "Baju Polo Uniqlo.",
+            category: "Pakaian-wanita",
+            discount: 15
+        },  {
+            id: 2,
+            name: "Baju Polo Catton ",
+            price: 500000,
+            image: "ASSET/baju 4.avif",
+            description: "Baju Polo Catton.",
+            category: "Pakaian-wanita",
+            discount: 15
+        },  {
+            id: 3,
+            name: "Sweater Polo Lengan Pendek",
+            price: 250000,
+            image: "ASSET/baju5.avif",
+            description: "Sweater Polo Lengan Pendek.",
+            category: "Pakaian-wanita",
+            discount: 15
+        }, {
+            id: 4,
+            name: "Baju Flanel ",
+            price: 500000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 15
+        }, {
+            id: 5,
+            name: "baju Kaos ",
+            price: 150000,
+            image: "ASSET/baju6.avif",
+            description: "Baju kaos Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 15
+        },{
+            id: 6,
+            name: "Baju boxy",
+            price: 499000,
+            image: "ASSET/baju2.jpg",
+            description: "Baju Boxy Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 0
+        }];
+
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function displayOrderSummary() {
+            const productId = parseInt(getUrlParameter('id'));
+            const quantity = parseInt(getUrlParameter('quantity')) || 1;
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                const orderSummary = document.getElementById('orderSummary');
+                orderSummary.innerHTML = `
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="${product.image}" class="product-image-small" alt="${product.name}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; margin-right: 10px;" onerror="this.src='https://via.placeholder.com/60x60/6a11cb/ffffff?text=Gambar+Tidak+Tersedia'">
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.9rem;">${product.name}</div>
+                            <div style="color: var(--utama); font-weight: 700;">Rp ${product.price.toLocaleString('id-ID')} x ${quantity}</div>
+                        </div>
+                    </div>
+                `;
+
+                const subtotal = product.price * quantity;
+                const discountAmount = product.discount > 0 ? subtotal * (product.discount / 100) : 0;
+                const shippingCost = subtotal > 500000 ? 0 : 25000;
+                const totalAmount = subtotal - discountAmount + shippingCost;
+
+                document.getElementById('subtotalSmall').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+                document.getElementById('shippingCostSmall').textContent = 'Rp ' + shippingCost.toLocaleString('id-ID');
+                document.getElementById('discountAmountSmall').textContent = 'Rp ' + Math.round(discountAmount).toLocaleString('id-ID');
+                document.getElementById('totalAmountSmall').textContent = 'Rp ' + Math.round(totalAmount).toLocaleString('id-ID');
+            } else {
+
+                window.location.href = 'index.html';
+            }
+        }
+
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+
+                this.classList.add('selected');
+
+                document.getElementById('paymentMethod').value = this.getAttribute('data-method');
+            });
+        });
+
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            if (!paymentMethod) {
+                alert('Silakan pilih metode pembayaran');
+                return;
+            }
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const postalCode = document.getElementById('postalCode').value;
+
+            if (!firstName || !lastName || !email || !phone || !address || !city || !postalCode) {
+                alert('Silakan lengkapi semua informasi pengiriman');
+                return;
+            }
+
+            const totalAmount = document.getElementById('totalAmountSmall').textContent;
+            const numericTotal = totalAmount.replace(/[^\d]/g, '');
+            n
+            alert('Pembayaran berhasil! Mengarahkan ke halaman konfirmasi...');
+
+            window.location.href = `terimakasih.html?total=${numericTotal}`;
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayOrderSummary();
+
+            document.querySelector('.payment-option').click();
+        });
+    </script>
+</body>
+
+</html>

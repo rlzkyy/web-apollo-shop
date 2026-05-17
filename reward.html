@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reward & Loyalty Points - Apollo Shoppie</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --gelap: #343a40;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: var(--gradien);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .points-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .points-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .points-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #6c63ff;
+        }
+        
+        .tier-card {
+            border: none;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reward-item {
+            border-radius: 15px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .reward-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .footer {
+            background: var(--gelap);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Apollo Shoppie</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kategori.html">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Reward</h1>
+            <p class="hero-subtitle">Tukarkan Point Kamu</p>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="points-card mx-auto col-md-6">
+            <p>Total Poin Kamu</p>
+            <div class="points-value">1,250</div>
+            <p class="text-muted">Level: <strong>Gold Member</strong></p>
+            <button class="btn btn-primary mt-3"><i class="fa-solid fa-gift me-2"></i> Tukarkan Poin</button>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h3 class="text-center fw-bold mb-4">Level Membership</h3>
+        <div class="row justify-content-center g-4">
+            <div class="col-md-3">
+                <div class="card tier-card text-center p-3 border-secondary">
+                    <i class="fa-solid fa-user text-secondary fs-2 mb-2"></i>
+                    <h5>Bronze</h5>
+                    <p>0 - 499 Poin</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card tier-card text-center p-3 border-warning">
+                    <i class="fa-solid fa-star text-warning fs-2 mb-2"></i>
+                    <h5>Silver</h5>
+                    <p>500 - 999 Poin</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card tier-card text-center p-3 border-primary">
+                    <i class="fa-solid fa-crown text-primary fs-2 mb-2"></i>
+                    <h5>Gold</h5>
+                    <p>1.000 - 1.999 Poin</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card tier-card text-center p-3 border-warning border-3">
+                    <i class="fa-solid fa-gem text-warning fs-2 mb-2"></i>
+                    <h5>Platinum</h5>
+                    <p>2.000+ Poin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h3 class="text-center fw-bold mb-4">Hadiah yang Bisa Ditukar</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="reward-item p-3 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Voucher" width="80" class="mb-3">
+                    <h5>Voucher Belanja Rp50.000</h5>
+                    <p class="text-muted">Butuh 1.000 poin</p>
+                    <button class="btn btn-outline-primary btn-sm">Tukar Sekarang</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="reward-item p-3 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1041/1041387.png" alt="Gratis Ongkir" width="80" class="mb-3">
+                    <h5>Gratis Ongkir</h5>
+                    <p class="text-muted">Butuh 800 poin</p>
+                    <button class="btn btn-outline-primary btn-sm">Tukar Sekarang</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="reward-item p-3 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Hadiah Misteri" width="80" class="mb-3">
+                    <h5>Hadiah Misteri Eksklusif</h5>
+                    <p class="text-muted">Butuh 1.500 poin</p>
+                    <button class="btn btn-outline-primary btn-sm">Tukar Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Apollo Shoppie</h4>
+                    <p>Toko online terpercaya dengan berbagai produk berkualitas dan harga terbaik.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Link Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
+                        <li><a href="tentang.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li><a href="pengembalian.html" class="text-white text-decoration-none">Return</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Kontak Kami</h4>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@apolloshoppie.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Apollo Shoppie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

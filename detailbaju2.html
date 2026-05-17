@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Tas Ransel - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .detail-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gelap);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--terang);
+        }
+        
+        .product-summary {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--terang);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .product-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .product-info {
+            flex-grow: 1;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+        
+        .product-price {
+            color: var(--utama);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px 0;
+        }
+        
+        .summary-total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--utama);
+            border-top: 2px solid var(--terang);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .back-link {
+            color: var(--utama);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-primary {
+            background: var(--gradien);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .discount-badge {
+            background: var(--aksen);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--utama);
+            background: white;
+            color: var(--utama);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--utama);
+            color: white;
+        }
+        
+        .quantity-display {
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .specs-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        
+        .specs-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="produk.html" class="back-link">
+            <i class="fas fa-arrow-left me-2"></i> Kembali ke Produk
+        </a>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="detail-container">
+                    <h2 class="section-title">Detail Baju Polo Catton</h2>
+
+                    <div id="productDetail">
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="section-title">Ringkasan Pembayaran</div>
+
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Biaya Pengiriman</span>
+                            <span id="shippingCost">Rp 0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Diskon</span>
+                            <span id="discountAmount">Rp 0</span>
+                        </div>
+                        <div class="summary-item summary-total">
+                            <span>Total Pembayaran</span>
+                            <span id="totalAmount">Rp 0</span>
+                        </div>
+
+                        <button id="continueBtn" class="btn btn-primary w-100 mt-4">
+                            <i class="fas fa-arrow-right me-2"></i> LANJUTKAN KE PEMBAYARAN
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const rangselProduct = {
+            id: 2,
+            name: "Baju ",
+            price: 425000,
+            image: "ASSET/baju 4.avif",
+            description: "Baju Polo Catton.",
+            category: "pakaian-wanita",
+            discount: 0,
+            specs: {
+                bahan: "catton",
+                Ukuran: "M, L, Xl",
+                warna: "Hijau Army"
+            }
+        };
+
+        function displayProductDetail() {
+            let quantity = 1;
+
+            const productDetail = document.getElementById('productDetail');
+            productDetail.innerHTML = `
+                <div class="product-summary">
+                    <img src="${rangselProduct.image}" class="product-image" alt="${rangselProduct.name}" onerror="this.src='https://via.placeholder.com/150x150/6a11cb/ffffff?text=Gambar+Tidak+Tersedia'">
+                    <div class="product-info">
+                        <div class="d-flex align-items-center">
+                            <div class="product-name">${rangselProduct.name}</div>
+                            ${rangselProduct.discount > 0 ? `<span class="discount-badge">${rangselProduct.discount}% OFF</span>` : ''}
+                        </div>
+                        <div class="product-description">${rangselProduct.description}</div>
+                        <div class="product-price">Rp ${rangselProduct.price.toLocaleString('id-ID')}</div>
+                        
+                        <div class="mt-3">
+                            <h6>Spesifikasi Teknis:</h6>
+                            <ul class="specs-list">
+                                <li><strong>Bahan:</strong> ${rangselProduct.specs.bahan}</li>
+                                <li><strong>Ukuran:</strong> ${rangselProduct.specs.Ukuran}</li>
+                                <li><strong>Warna Tersedia:</strong> ${rangselProduct.specs.warna}</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <div class="quantity-btn" id="decreaseQty">-</div>
+                            <div class="quantity-display" id="quantityDisplay">${quantity}</div>
+                            <div class="quantity-btn" id="increaseQty">+</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('decreaseQty').addEventListener('click', function() {
+                if (quantity > 1) {
+                    quantity--;
+                    updateOrderSummary(rangselProduct, quantity);
+                }
+            });
+            
+            document.getElementById('increaseQty').addEventListener('click', function() {
+                quantity++;
+                updateOrderSummary(rangselProduct, quantity);
+            });
+
+            updateOrderSummary(rangselProduct, quantity);
+ 
+            document.getElementById('continueBtn').addEventListener('click', function() {
+                window.location.href = `formulir.html?id=${rangselProduct.id}&quantity=${quantity}`;
+            });
+        }
+
+        function updateOrderSummary(product, quantity) {
+
+            document.getElementById('quantityDisplay').textContent = quantity;
+
+            const subtotal = product.price * quantity;
+            const discountAmount = product.discount > 0 ? subtotal * (product.discount / 100) : 0;
+            const shippingCost = subtotal > 500000 ? 0 : 25000;
+            const totalAmount = subtotal - discountAmount + shippingCost;
+
+            document.getElementById('subtotal').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+            document.getElementById('shippingCost').textContent = 'Rp ' + shippingCost.toLocaleString('id-ID');
+            document.getElementById('discountAmount').textContent = 'Rp ' + Math.round(discountAmount).toLocaleString('id-ID');
+            document.getElementById('totalAmount').textContent = 'Rp ' + Math.round(totalAmount).toLocaleString('id-ID');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProductDetail();
+        });
+    </script>
+</body>
+
+</html>

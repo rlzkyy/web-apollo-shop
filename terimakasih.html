@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .thank-you-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 0;
+        }
+        
+        .thank-you-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--sukses);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 3rem;
+            animation: bounce 1s ease-in-out;
+        }
+        
+        .thank-you-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gelap);
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-message {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .order-details {
+            background: var(--terang);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .order-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gelap);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .order-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .order-info:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--gelap);
+        }
+        
+        .info-value {
+            color: #666;
+        }
+        
+        .btn-primary {
+            background: var(--gradien);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+            color: white;
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--utama);
+            color: var(--utama);
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--utama);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            background: var(--gelap);
+            color: white;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+        
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--utama);
+            opacity: 0;
+            animation: confetti-fall 3s ease-in-out forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .action-buttons {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .thank-you-title {
+                font-size: 2rem;
+            }
+            .success-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+            .btn-primary,
+            .btn-outline-primary {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kategori.html">Kategori</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="thank-you-section">
+        <div class="container">
+            <div class="thank-you-card">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+
+                <h1 class="thank-you-title">Terima Kasih!</h1>
+                <p class="thank-you-message">
+                    Pesanan Anda telah berhasil diproses. Kami sangat menghargai kepercayaan Anda berbelanja di Apollo Shoppie. Tim kami akan segera memproses pesanan Anda.
+                </p>
+
+                <div class="order-details">
+                    <h3 class="order-title">Detail Pesanan</h3>
+                    <div class="order-info">
+                        <span class="info-label">No. Pesanan:</span>
+                        <span class="info-value" id="orderNumber">#APL-2024-001</span>
+                    </div>
+                    <div class="order-info">
+                        <span class="info-label">Tanggal:</span>
+                        <span class="info-value" id="orderDate">Loading...</span>
+                    </div>
+                    <div class="order-info">
+                        <span class="info-label">Total Pembayaran:</span>
+                        <span class="info-value" id="orderTotal">Loading...</span>
+                    </div>
+                    <div class="order-info">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value" style="color: var(--sukses); font-weight: 600;">Diproses</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-index.html me-2"></i>Kembali ke Beranda
+                    </a>
+                    <a href="statuspengiriman.html" class="btn btn-outline-primary">
+                        <i class="fas fa-shipping-fast me-2"></i>Lacak Pengiriman
+                    </a>
+                </div>
+
+                <div class="mt-4">
+                    <p class="text-muted">
+                        <small>
+                            Konfirmasi pesanan akan dikirim ke email Anda. 
+                            Untuk pertanyaan, hubungi customer service kami di +62 812-3456-7890.
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Apollo Shoppie</h4>
+                    <p>Toko online terpercaya dengan berbagai produk berkualitas dan harga terbaik.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Link Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
+                        <li><a href="tentang.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li><a href="pengembalian.html" class="text-white text-decoration-none">Return</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Kontak Kami</h4>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@apolloshoppie.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Apollo Shoppie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function createConfetti() {
+            const colors = ['#6a11cb', '#2575fc', '#ff6b6b', '#1dd1a1', '#feca57', '#54a0ff'];
+            const container = document.body;
+
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                container.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        function generateOrderNumber() {
+            const timestamp = new Date().getTime();
+            const random = Math.floor(Math.random() * 1000);
+            return `#APL-${timestamp}-${random}`;
+        }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function displayOrderDetails() {
+            const lastOrder = localStorage.getItem('lastOrder');
+            let orderNumber, orderTotal;
+
+            if (lastOrder) {
+                const orderData = JSON.parse(lastOrder);
+                orderNumber = orderData.number;
+                orderTotal = orderData.total;
+            } else {
+                orderNumber = generateOrderNumber();
+                orderTotal = getUrlParameter('total') || '0';
+
+                const orderData = {
+                    number: orderNumber,
+                    date: new Date().toISOString(),
+                    total: orderTotal,
+                    status: 'processed'
+                };
+                localStorage.setItem('lastOrder', JSON.stringify(orderData));
+            }
+
+            document.getElementById('orderNumber').textContent = orderNumber;
+
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            document.getElementById('orderDate').textContent = now.toLocaleDateString('id-ID', options);
+
+            if (orderTotal && orderTotal !== '0') {
+                document.getElementById('orderTotal').textContent = 'Rp ' + parseInt(orderTotal).toLocaleString('id-ID');
+            } else {
+                document.getElementById('orderTotal').textContent = 'Rp 0';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayOrderDetails();
+
+            createConfetti();
+
+            const confettiInterval = setInterval(createConfetti, 3000);
+            setTimeout(() => {
+                clearInterval(confettiInterval);
+            }, 15000);
+        });
+    </script>
+</body>
+
+</html>

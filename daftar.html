@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+            --gradien-balik: linear-gradient(135deg, var(--sekunder) 0%, var(--utama) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--gradien);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        
+        .kontainer-utama {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .bagian-hero {
+            background: var(--gradien-balik);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .kotak-form {
+            background: #fff;
+            padding: 30px 25px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .kontainer-form {
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .kontainer-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--gradien);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: detak 2s infinite;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .judul-form {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--gelap);
+            text-align: center;
+        }
+        
+        .subjudul-form {
+            color: #666;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .kontrol-form {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        
+        .kontrol-form:focus {
+            border-color: var(--utama);
+            box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.25);
+        }
+        
+        .tombol-daftar {
+            background: var(--gradien);
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .tombol-daftar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .pemisah {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .pemisah::before,
+        .pemisah::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .teks-pemisah {
+            padding: 0 10px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .daftar-sosial {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .tombol-sosial {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dee2e6;
+            background: white;
+            color: var(--gelap);
+            transition: all 0.3s;
+        }
+        
+        .tombol-sosial:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tombol-sosial.facebook:hover {
+            background: #3b5998;
+            color: white;
+            border-color: #3b5998;
+        }
+        
+        .tombol-sosial.google:hover {
+            background: #dd4b39;
+            color: white;
+            border-color: #dd4b39;
+        }
+        
+        .tombol-sosial.twitter:hover {
+            background: #1da1f2;
+            color: white;
+            border-color: #1da1f2;
+        }
+        
+        .footer-form {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .footer-form a {
+            color: var(--utama);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer-form a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--utama);
+            border-color: var(--utama);
+        }
+        
+        .tombol-lihat-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+        }
+        
+        .kontainer-password {
+            position: relative;
+        }
+        
+        .judul-hero {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .subjudul-hero {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            text-align: center;
+        }
+        
+        .fitur {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .fitur li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .fitur i {
+            margin-right: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .tombol-masuk {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 15px;
+            display: inline-block;
+            width: auto;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .tombol-masuk:hover {
+            background: white;
+            color: var(--utama);
+        }
+        
+        .tombol-sosial img {
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .tombol-sosial:hover img {
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes detak {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .kontainer-utama {
+                flex-direction: row;
+                height: 600px;
+            }
+            .bagian-hero {
+                text-align: left;
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .kotak-form {
+                padding: 50px;
+            }
+            .fitur li {
+                justify-content: flex-start;
+            }
+            .logo {
+                font-size: 2.8rem;
+            }
+            .judul-form {
+                font-size: 1.8rem;
+            }
+            .judul-hero {
+                font-size: 2.2rem;
+                text-align: left;
+            }
+            .subjudul-hero {
+                text-align: left;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+            .kontainer-utama {
+                max-width: 700px;
+            }
+            .judul-hero {
+                font-size: 2rem;
+            }
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding: 10px;
+            }
+            .kontainer-utama {
+                border-radius: 15px;
+            }
+            .bagian-hero,
+            .kotak-form {
+                padding: 25px 20px;
+            }
+            .logo {
+                font-size: 2rem;
+            }
+            .judul-form {
+                font-size: 1.4rem;
+            }
+            .judul-hero {
+                font-size: 1.6rem;
+            }
+            .tombol-sosial {
+                width: 40px;
+                height: 40px;
+            }
+            .fitur li {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kontainer-utama">
+        <div class="bagian-hero">
+            <h1 class="judul-hero">Bergabung dengan <span style="color:#ffd700">Apollo Shoppie</span></h1>
+            <p class="subjudul-hero">Dapatkan akses ke penawaran eksklusif dan pengalaman belanja terbaik</p>
+            <ul class="fitur">
+                <li><i class="fas fa-tags"></i> Diskon khusus untuk member baru</li>
+                <li><i class="fas fa-bolt"></i> Proses checkout yang cepat</li>
+                <li><i class="fas fa-history"></i> Riwayat pembelian tersimpan</li>
+                <li><i class="fas fa-bell"></i> Notifikasi promo terbaru</li>
+            </ul>
+            <div style="text-align: center;">
+                <a href="login.html" class="tombol-masuk">Sudah Punya Akun? Masuk</a>
+            </div>
+        </div>
+
+        <div class="kotak-form">
+            <div class="kontainer-form">
+                <div class="kontainer-logo">
+                    <div class="logo">Apollo Shoppie</div>
+                </div>
+                <h2 class="judul-form">Buat Akun Baru</h2>
+                <p class="subjudul-form">Isi data diri Anda untuk mulai berbelanja</p>
+
+                <form id="formDaftar">
+                    <div class="mb-3">
+                        <input type="text" class="kontrol-form" id="namaLengkap" placeholder="Nama lengkap" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="email" class="kontrol-form" id="emailDaftar" placeholder="Alamat email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="kontainer-password">
+                            <input type="password" class="kontrol-form" id="passwordDaftar" placeholder="Buat kata sandi" required>
+                            <button type="button" class="tombol-lihat-password" id="tombolLihatPasswordDaftar">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="kontainer-password">
+                            <input type="password" class="kontrol-form" id="konfirmasiPassword" placeholder="Konfirmasi kata sandi" required>
+                            <button type="button" class="tombol-lihat-password" id="tombolLihatPasswordKonfirmasi">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="setujuSyarat">
+                        <label class="form-check-label" for="setujuSyarat">Saya setuju dengan <a href="syaratdanketentuan.html">Syarat & Ketentuan</a></label>
+                    </div>
+
+                    <button type="submit" class="btn tombol-daftar">Daftar Sekarang</button>
+
+                    <div class="pemisah">
+                        <span class="teks-pemisah">Atau daftar dengan</span>
+                    </div>
+
+                    <div class="daftar-sosial">
+                        <a href="#" class="tombol-sosial facebook">
+                            <img src="ASSET/FB LOGO.jpeg" alt="Facebook" width="20" height="20">
+                        </a>
+                        <a href="#" class="tombol-sosial google">
+                            <img src="ASSET/GOOGLE LOGO.jpeg" alt="Google" width="20" height="20">
+                        </a>
+                        <a href="#" class="tombol-sosial twitter">
+                            <img src="ASSET/TWEET LOGO.jpeg" alt="Twitter" width="20" height="20">
+                        </a>
+                    </div>
+
+                    <div class="footer-form">
+
+                        Sudah punya akun? <a href="login.html">Masuk di sini</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('tombolLihatPasswordDaftar').addEventListener('click', function() {
+            const inputPassword = document.getElementById('passwordDaftar');
+            const ikon = this.querySelector('i');
+
+            if (inputPassword.type === 'password') {
+                inputPassword.type = 'text';
+                ikon.classList.remove('fa-eye');
+                ikon.classList.add('fa-eye-slash');
+            } else {
+                inputPassword.type = 'password';
+                ikon.classList.remove('fa-eye-slash');
+                ikon.classList.add('fa-eye');
+            }
+        });
+
+        document.getElementById('tombolLihatPasswordKonfirmasi').addEventListener('click', function() {
+            const inputPassword = document.getElementById('konfirmasiPassword');
+            const ikon = this.querySelector('i');
+
+            if (inputPassword.type === 'password') {
+                inputPassword.type = 'text';
+                ikon.classList.remove('fa-eye');
+                ikon.classList.add('fa-eye-slash');
+            } else {
+                inputPassword.type = 'password';
+                ikon.classList.remove('fa-eye-slash');
+                ikon.classList.add('fa-eye');
+            }
+        });
+
+        document.getElementById('formDaftar').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('passwordDaftar').value;
+            const konfirmasiPassword = document.getElementById('konfirmasiPassword').value;
+
+            if (password !== konfirmasiPassword) {
+                alert('Kata sandi dan konfirmasi kata sandi tidak cocok!');
+                return;
+            }
+
+            if (!document.getElementById('setujuSyarat').checked) {
+                alert('Anda harus menyetujui Syarat & Ketentuan!');
+                return;
+            }
+
+            alert('Pendaftaran berhasil! Silakan login dengan akun Anda.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+
+</html>

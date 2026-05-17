@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: var(--gradien);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gelap);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img-top {
+            border-radius: 15px 15px 0 0;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            color: var(--gelap);
+        }
+        
+        .card-text {
+            color: #666;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--utama);
+        }
+        
+        .btn-primary {
+            background: var(--gradien);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .badge-discount {
+            background: var(--aksen);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        .footer {
+            background: var(--gelap);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradien);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .user-welcome {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .welcome-text {
+            font-size: 1.2rem;
+            color: var(--gelap);
+        }
+        
+        .user-name {
+            color: var(--utama);
+            font-weight: 700;
+        }
+        
+        .search-results {
+            display: none;
+        }
+        
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .product-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .product-link:hover {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Apollo Shoppie</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Keluar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Selamat Datang di Apollo Shoppie</h1>
+            <p class="hero-subtitle">Temukan produk terbaik dengan kualitas premium dan harga terbaik</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Cari produk yang Anda inginkan...">
+                        <button class="btn btn-warning btn-lg" type="button" id="searchButton">
+                            <i class="fas fa-search"></i> Cari
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="user-welcome">
+            <h3 class="welcome-text">Halo, <span class="user-name">Pengguna Apollo Shoppie</span>! </h3>
+            <p class="mb-0">Selamat berbelanja! Nikmati pengalaman berbelanja terbaik dengan penawaran spesial untuk Anda.</p>
+        </div>
+    </div>
+
+    <section class="container search-results" id="searchResults">
+        <h2 class="section-title">Hasil Pencarian</h2>
+        <div class="row" id="searchResultsContainer">
+        </div>
+    </section>
+
+    <section class="container no-results" id="noResults">
+        <div class="text-center">
+            <i class="fas fa-search fa-5x mb-4" style="color: #6c757d;"></i>
+            <h2>Maaf, produk tidak ditemukan</h2>
+            <p class="mb-4">Coba gunakan kata kunci lain atau lihat produk populer kami di bawah ini</p>
+            <a href="produk.html" class="btn btn-primary">Lihat Semua Produk</a>
+        </div>
+    </section>
+
+    <section class="container" id="featuredProducts">
+        <h2 class="section-title">Produk Terpopuler</h2>
+        <div class="row" id="productsContainer">
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <h2 class="section-title">Mengapa Belanja di Apollo Shoppie?</h2>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h4 class="feature-title">Gratis Ongkir</h4>
+                <p>Gratis ongkir untuk pembelian di atas Rp 500.000</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 class="feature-title">Aman & Terjamin</h4>
+                <p>Transaksi aman dengan garansi uang kembali</p>
+            </div>
+            <div class="col-md-3 text-center" onclick="window.location.href='hubungi.html'" style="cursor: pointer;">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4 class="feature-title">Bantuan 24/7</h4>
+                <p>Customer service siap membantu kapan saja</p>
+            </div>
+
+            <div class="col-md-3 text-center" onclick="window.location.href='reward.html'" style="cursor: pointer;">
+                <div class="feature-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h4 class="feature-title">Reward</h4>
+                <p>Tukar & Dapatkan Point mu</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Apollo Shoppie</h4>
+                    <p>Toko online terpercaya dengan berbagai produk berkualitas dan harga terbaik.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Link Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
+                        <li><a href="tentang.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li><a href="pengembalian.html" class="text-white text-decoration-none">Return</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Kontak Kami</h4>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@apolloshoppie.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Apollo Shoppie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const products =  [ {
+            id: 1,
+            name: "Baju polo ",
+            price: 400000,
+            image: "ASSET/baju1.avif",
+            description: "Baju Polo Uniqlo.",
+            category: "Pakaian-wanita",
+            discount: 15
+        },  {
+            id: 2,
+            name: "Baju Polo Catton ",
+            price: 500000,
+            image: "ASSET/baju 4.avif",
+            description: "Baju Polo Catton.",
+            category: "Pakaian-wanita",
+            discount: 15
+        },  {
+            id: 3,
+            name: "Sweater Polo Lengan Pendek",
+            price: 250000,
+            image: "ASSET/baju5.avif",
+            description: "Sweater Polo Lengan Pendek.",
+            category: "Pakaian-wanita",
+            discount: 15
+        }, {
+            id: 4,
+            name: "Baju Flanel ",
+            price: 500000,
+            image: "ASSET/baju3.avif",
+            description: "Baju Flanel Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 15
+        }, {
+            id: 5,
+            name: "baju Kaos ",
+            price: 150000,
+            image: "ASSET/baju6.avif",
+            description: "Baju kaos Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 15
+        },{
+            id: 6,
+            name: "Baju boxy",
+            price: 499000,
+            image: "ASSET/baju2.jpg",
+            description: "Baju Boxy Uniqlo.",
+            category: "Pakaian-Pria",
+            discount: 0
+        }];
+    function getDetailPage(productId) {
+        const detailPages = {
+            1: "detailbaju1.html",
+                2: "detailbaju2.html",
+                3: "detailbaju3.html",
+                4: "detailbaju4.html",
+                5: "detailbaju5.html", 
+                6: "detailbaju6.html",
+        };
+
+        return detailPages[productId] || "detail-produk.html";
+    }
+
+    function displayProducts(productsToShow, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+
+        productsToShow.forEach(product => {
+                    const detailPage = getDetailPage(product.id);
+
+                    const productCard = `
+                    <div class="col-md-4">
+                        <a href="${detailPage}?id=${product.id}" class="product-link">
+                            <div class="card product-card">
+                                <div class="position-relative">
+                                    <img src="${product.image}" class="card-img-top" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200/6a11cb/ffffff?text=Gambar+Tidak+Tersedia'">
+                                    ${product.discount > 0 ? `<span class="badge-discount">DISKON ${product.discount}%</span>` : ''}
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">${product.description}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">Rp ${product.price.toLocaleString('id-ID')}</span>
+                                        <button class="btn btn-primary buy-now" data-product-id="${product.id}">Beli Sekarang</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `;
+                container.innerHTML += productCard;
+            });
+            document.querySelectorAll('.buy-now').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const productId = this.getAttribute('data-product-id');
+                    const detailPage = getDetailPage(parseInt(productId));
+                    window.location.href = `${detailPage}?id=${productId}`;
+                });
+            });
+        }
+        function searchProducts(query) {
+            const filteredProducts = products.filter(product => 
+                product.name.toLowerCase().includes(query.toLowerCase()) ||
+                product.description.toLowerCase().includes(query.toLowerCase()) ||
+                product.category.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            return filteredProducts;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts(products, 'productsContainer');
+
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const query = document.getElementById('searchInput').value.trim();
+                
+                if (query === '') {
+                    document.getElementById('featuredProducts').style.display = 'block';
+                    document.getElementById('searchResults').style.display = 'none';
+                    document.getElementById('noResults').style.display = 'none';
+                    return;
+                }
+                
+                const results = searchProducts(query);
+                
+                if (results.length > 0) {
+an
+                    document.getElementById('featuredProducts').style.display = 'none';
+                    document.getElementById('searchResults').style.display = 'block';
+                    document.getElementById('noResults').style.display = 'none';
+                    displayProducts(results, 'searchResultsContainer');
+                } else {
+                    document.getElementById('featuredProducts').style.display = 'none';
+                    document.getElementById('searchResults').style.display = 'none';
+                    document.getElementById('noResults').style.display = 'block';
+                }
+            });
+            
+
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('searchButton').click();
+                }
+            });
+        });
+</script>
+</body>
+
+</html>

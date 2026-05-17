@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Apollo Shoppie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+         :root {
+            --utama: #6a11cb;
+            --sekunder: #2575fc;
+            --aksen: #ff6b6b;
+            --terang: #f8f9fa;
+            --gelap: #343a40;
+            --sukses: #1dd1a1;
+            --peringatan: #feca57;
+            --info: #54a0ff;
+            --gradien: linear-gradient(135deg, var(--utama) 0%, var(--sekunder) 100%);
+        }
+        
+        .navbar {
+            background: var(--gradien);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: var(--gradien);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .contact-container {
+            flex: 1;
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+        }
+        
+        .btn-submit {
+            background: var(--gradien);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .footer {
+            background: var(--gelap);
+            color: white;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+        
+        .footer h4 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: #ffd700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Apollo Shoppie</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produk.html">Produk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kategori.html">Kategori</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="keranjang.html">keranjang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Keluar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Hubungi Kami</h1>
+                <p class="hero-subtitle">Hubungi Kami Jika Ada Kendala</p>
+            </div>
+        </section>
+
+        <div class="container contact-container">
+            <div class="row align-items-center justify-content-center g-4">
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="bg-white shadow p-4 rounded-4 h-100">
+                        <h3 class="fw-bold mb-3 text-primary"><i class="fa-solid fa-headset me-2"></i>Hubungi Kami</h3>
+                        <p class="text-muted mb-4">Kami siap membantu Anda! Silakan hubungi kami melalui informasi di bawah ini atau kirim pesan langsung melalui formulir.</p>
+
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fa-solid fa-phone text-primary me-2"></i> +62 812-3456-7890</li>
+                            <li class="mb-3"><i class="fa-solid fa-envelope text-primary me-2"></i> info@apolloshoppie.com</li>
+                            <li><i class="fa-solid fa-location-dot text-primary me-2"></i> Medan, Indonesia</li>
+                        </ul>
+
+                        <div class="map-container position-relative" style="overflow:hidden; padding-top:56.25%; border-radius:12px;">
+                            <iframe src="https://maps.google.com/maps?q=Medan,%20Indonesia&t=&z=13&ie=UTF8&iwloc=&output=embed" class="position-absolute top-0 start-0 w-100 h-100" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-lg-5 col-md-6">
+                    <form class="bg-white p-4 rounded-4 shadow" style="color:#333;">
+                        <h4 class="fw-bold mb-3 text-primary"><i class="fa-solid fa-paper-plane me-2"></i>Kirim Pesan</h4>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Nama Lengkap</label>
+                            <input type="text" class="form-control form-control-lg" placeholder="Masukkan nama Anda">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Email</label>
+                            <input type="email" class="form-control form-control-lg" placeholder="Masukkan email Anda">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Pesan</label>
+                            <textarea class="form-control form-control-lg" rows="4" placeholder="Tulis pesan Anda..."></textarea>
+                        </div>
+                        <a href="laporan diterima.html" class="btn-submit w-100 py-2 fs-6 text-decoration-none d-inline-block text-center">
+                            <i class="fa-solid fa-paper-plane me-2"></i> Kirim Pesan
+                        </a>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Apollo Shoppie</h4>
+                        <p>Toko online terpercaya dengan berbagai produk berkualitas dan harga terbaik.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Link Cepat</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                            <li><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
+
+                            <li><a href="tentang.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                            <li><a href="pengembalian.html" class="text-white text-decoration-none">Return</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Kontak Kami</h4>
+                        <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                        <p><i class="fas fa-envelope"></i> info@apolloshoppie.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <p>&copy; 2025 Apollo Shoppie. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+
+</html>
